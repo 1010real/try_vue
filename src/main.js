@@ -4,6 +4,8 @@ import App2 from "./App2.vue";
 import store from "./store";
 
 Vue.config.productionTip = false;
+// Vue.configはグローバル設定を含むオブジェクト
+// グローバル設定詳細は→ https://jp.vuejs.org/v2/api/#%E3%82%B0%E3%83%AD%E3%83%BC%E3%83%90%E3%83%AB%E8%A8%AD%E5%AE%9A
 
 // Vue.component("AlertBox", {
 //   template: `
