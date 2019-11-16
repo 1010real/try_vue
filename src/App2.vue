@@ -13,6 +13,7 @@
       </transition-group>
     </div>
     <AlertBox alert_msg="alert">slotタグにはここの値がはいるよ</AlertBox>
+    <ModelSample />
   </div>
 </template>
 
@@ -28,6 +29,7 @@
 <script>
 import Error from "./components/Error.vue";
 import AlertBox from "./components/AlertBox.vue";
+import ModelSample from "./components/ModelSample.vue";
 import _ from "lodash";
 
 export default {
@@ -48,7 +50,8 @@ export default {
     };
   },
   methods: {
-    time: function() { // time: () => { とするとErrorになる。 thisのスコープが変わるから？
+    // ↓ time: () => { とするとErrorになる。 thisのスコープが変わるから？
+    time: function() {
       this.now = new Date().toString();
     },
     shuffle: function() {
@@ -57,7 +60,8 @@ export default {
   },
   components: {
     Error,
-    AlertBox
+    AlertBox,
+    ModelSample
   }
 };
 </script>
