@@ -12,7 +12,7 @@
         </li>
       </transition-group>
     </div>
-    <AlertBox alert_msg="alert" />
+    <AlertBox alert_msg="alert">slotタグにはここの値がはいるよ</AlertBox>
   </div>
 </template>
 
