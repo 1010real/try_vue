@@ -74,6 +74,7 @@ export default {
     ModelSample
   }
 };
+// .vueファイルはvue-loaderによって解釈され、プレーンなJavascriptモジュールに変換される
 // そもそも.vueファイルって、どう書くの？どう処理されているの？は以下参照
 // https://vue-loader-v14.vuejs.org/ja/start/spec.html
 </script>
