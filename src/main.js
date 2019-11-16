@@ -38,7 +38,12 @@ var data = { a: 1 };
 var vm = new Vue({
   el: "#app2",
   render: h => h(App2),
-  data: data
+  data: data,
+  created: function() {
+    console.log(`instance created. this.a is ${this.a}`);
+  }
+  // Vueインスタンスのライフサイクルとフック(created等)については以下を参照
+  // https://jp.vuejs.org/v2/guide/instance.html#%E3%82%A4%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%B3%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%95%E3%82%B5%E3%82%A4%E3%82%AF%E3%83%AB%E3%83%95%E3%83%83%E3%82%AF
 }).$mount("#app2");
 
 console.log(vm.a == data.a); // true
