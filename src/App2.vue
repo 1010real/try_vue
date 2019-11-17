@@ -3,11 +3,15 @@
     <Error :error="error" />
     <p v-bind:class="error_class">Urgentなエラー</p>
     <p>{{ now }}</p>
+    <p>一時間後は{{ new Date(allmillisecond + 3600000).toString() }}</p>
+    <!-- Mustache構文内 {{ }} やディレクティブの引数に渡す値はJavascript式をサポートする。詳細は↓ -->
+    <!-- https://jp.vuejs.org/v2/guide/syntax.html#JavaScript-%E5%BC%8F%E3%81%AE%E4%BD%BF%E7%94%A8 -->
     <button v-on:click="time">時刻表示</button>
     <!-- v-on, v-bind, v-forは、ディレクティブ（"指令"の意味）と呼ばれる -->
-    <!-- v-onは"@"で置き換え可能 例えば、onclickは @:click="xxxx" と書ける -->
+    <!-- v-onは"@"で置き換え可能 例えば、onclickは @click="xxxx" と書ける -->
     <!-- v-bindは省略可能 例えば、keyをバインドしたければ :key="xxxx" と書ける-->
     <!-- ディレクティブ一覧は → https://jp.vuejs.org/v2/api/#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%86%E3%82%A3%E3%83%96 -->
+    <!-- v-on,v-bindの省略について -> https://jp.vuejs.org/v2/guide/syntax.html#%E7%9C%81%E7%95%A5%E8%A8%98%E6%B3%95 -->
     <div>
       <button v-on:click="shuffle">シャッフル</button>
       <transition-group name="flip-list" tag="ul">
@@ -48,7 +52,8 @@ export default {
     return {
       error: true,
       error_class: "urgent",
-      now: "00:00:00",
+      now: new Date().toString(),
+      allmillisecond: new Date().getTime(),
       prefs: [
         { name: "北海道" },
         { name: "北海道2" },
@@ -63,6 +68,7 @@ export default {
     // ↓ time: () => { とするとErrorになる。 thisのスコープが変わるから？
     time: function() {
       this.now = new Date().toString();
+      this.allmillisecond = new Date().getTime();
     },
     shuffle: function() {
       this.prefs = _.shuffle(this.prefs);
