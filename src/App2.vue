@@ -26,6 +26,7 @@
     </div>
     <AlertBox alert_msg="alert">slotタグにはここの値がはいるよ</AlertBox>
     <ModelSample />
+    <ComputedValues message="あいうえお" />
   </div>
 </template>
 
@@ -44,6 +45,7 @@
 import Error from "./components/Error.vue";
 import AlertBox from "./components/AlertBox.vue";
 import ModelSample from "./components/ModelSample.vue";
+import ComputedValues from "./components/ComputedValues.vue";
 import _ from "lodash";
 
 export default {
@@ -77,7 +79,8 @@ export default {
   components: {
     Error,
     AlertBox,
-    ModelSample
+    ModelSample,
+    ComputedValues
   }
 };
 // .vueファイルはvue-loaderによって解釈され、プレーンなJavascriptモジュールに変換される
